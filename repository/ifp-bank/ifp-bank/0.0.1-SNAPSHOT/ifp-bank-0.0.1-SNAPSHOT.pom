@@ -272,12 +272,6 @@
 			<version>2.5</version>
 			<scope>provided</scope>
 		</dependency>
-		<!-- ifp-account-service and ifp-accounts-service dependency -->
-		<dependency>
-			<groupId>com.fmbank.commons</groupId>
-			<artifactId>fmbank-common-util</artifactId>
-			<version>1.0.4</version>
-		</dependency>
 		<dependency>
 			<groupId>org.java-websocket</groupId>
 			<artifactId>Java-WebSocket</artifactId>
