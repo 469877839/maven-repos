@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>ifp</groupId>
+		<artifactId>ifp-main</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../ifp-main</relativePath>
+	</parent>
+	<groupId>ifp</groupId>
+	<artifactId>ifp-access</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>ifp-access</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<zkclient_version>0.6</zkclient_version>
+		<zookeeper_version>3.4.6</zookeeper_version>
+		<curator_version>2.5.0</curator_version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>ifp</groupId>
+			<artifactId>ifp-core</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<exclusions>
+				<exclusion>
+					<groupId>ifp</groupId>
+					<artifactId>ifp-temp</artifactId>
+				</exclusion>
+			</exclusions>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>ifp</groupId>
+			<artifactId>ifp-netflix</artifactId>
+			<version>0.0.2-SNAPSHOT</version>
+			<exclusions>
+				<exclusion>
+					<groupId>ifp</groupId>
+					<artifactId>ifp-flow</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>ifp</groupId>
+					<artifactId>ifp-gateway</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>ifp</groupId>
+					<artifactId>ifp-web</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.101tec</groupId>
+			<artifactId>zkclient</artifactId>
+			<version>${zkclient_version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.zookeeper</groupId>
+			<artifactId>zookeeper</artifactId>
+			<version>${zookeeper_version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.curator</groupId>
+			<artifactId>curator-framework</artifactId>
+			<version>${curator_version}</version>
+		</dependency>
+		
+		<!-- spring junit test -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>3.2.3.RELEASE</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+	
+</project>

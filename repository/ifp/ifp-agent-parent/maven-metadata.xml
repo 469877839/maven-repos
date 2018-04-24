@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>ifp</groupId>
+  <artifactId>ifp-agent-parent</artifactId>
+  <versioning>
+    <versions>
+      <version>0.0.1-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20171115104247</lastUpdated>
+  </versioning>
+</metadata>

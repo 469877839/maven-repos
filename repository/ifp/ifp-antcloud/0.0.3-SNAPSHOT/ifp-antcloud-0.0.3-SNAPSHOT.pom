@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ifp</groupId>
+	<artifactId>ifp-antcloud</artifactId>
+	<version>0.0.3-SNAPSHOT</version>
+	<name>${project.artifactId}</name>
+	<description>由 SOFA Lite 1.0 升级到 SOFA Lite</description>
+
+	<properties>
+		<slite.starter.version>2.1.2</slite.starter.version>
+	</properties>
+
+	<distributionManagement>
+		<repository>
+			<id>ynet.releases</id>
+			<name>ynet Releases</name>
+			<url>http://192.168.1.99:8181/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>ynet.snapshots</id>
+			<name>ynet Snapshot</name>
+			<url>http://192.168.1.99:8181/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.alipay.boot</groupId>
+				<artifactId>slite2-dependencies</artifactId>
+				<version>${slite.starter.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>ifp</groupId>
+			<artifactId>ifp</artifactId>
+			<version>2.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- 引入antcloud要的logback -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+		</dependency>
+
+		<!-- 自动配置 -->
+		<!-- <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-autoconfigure</artifactId>
+		</dependency> -->
+
+		<!-- spring boot web 应用 -->
+		<!-- <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency> -->
+
+		<!-- RPC -->
+		<dependency>
+			<groupId>com.alipay.boot</groupId>
+			<artifactId>sofarpc-spring-starter</artifactId>
+		</dependency>
+
+		<!-- MQ/DMS -->
+		<dependency>
+			<groupId>com.alipay.boot</groupId>
+			<artifactId>mq-spring-boot-starter</artifactId>
+		</dependency>
+
+		<!-- DDS -->
+		<dependency>
+			<groupId>com.alipay.boot</groupId>
+			<artifactId>zdal4-jdbc-spring-boot-starter</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>com.alipay.sofa</groupId>
+					<artifactId>sofa-runtime-spi</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- DDCS（分布式动态配置服务） -->
+		<!-- <dependency>
+			<groupId>com.alipay.boot</groupId>
+			<artifactId>ddcs-spring-starter</artifactId>
+			<version>2.1.1</version>
+		</dependency> -->
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<phase>package</phase>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

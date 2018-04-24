@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>ifp-bank</artifactId>
+		<groupId>ifp-bank</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+		<!-- 
+		<relativePath>../ifp-bank</relativePath>
+		 -->
+	</parent>
+	<groupId>ifp-bank</groupId>
+	<artifactId>ifp-service</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>ifp-service</name>
+	
+	<modules>
+		<module>ifp-base-service</module>
+		<module>ifp-deposit-service</module>
+		<module>ifp-user-service</module>
+		<module>ifp-personal-service</module>
+		<module>ifp-pay-service</module>
+		<module>ifp-business-service</module>
+		<module>ifp-product-service</module>
+		<module>ifp-account-service</module>
+		<module>ifp-accounts-service</module>
+		<module>ifp-gateway-service</module>
+	</modules>
+	
+	<!-- 配置仓库镜像指向地址 -->
+	<!-- <repositories>
+		<repository>
+			<id>aliyun.maven</id>
+			<name>Aliyun Maven Repository Group</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+		</repository>
+		<repository>
+			<id>ifp.git</id>
+			<name>ifp github Nexus Repositories</name>
+			<url>https://raw.githubusercontent.com/ynet-ifp/maven-repo/master/repository</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>aliyun.maven</id>
+			<name>Aliyun Maven Repository Group</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>ifp.git</id>
+			<name>ifp github Nexus Repository</name>
+			<url>https://raw.githubusercontent.com/ynet-ifp/maven-repo/master/repository</url>
+		</pluginRepository>
+	</pluginRepositories> -->
+
+	<dependencies>
+		<dependency>
+			<groupId>ifp-bank</groupId>
+			<artifactId>common-lib</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>ifp.ide</groupId>
+				<artifactId>bl-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

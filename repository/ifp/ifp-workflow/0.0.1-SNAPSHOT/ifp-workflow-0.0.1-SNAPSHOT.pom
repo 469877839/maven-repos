@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>ifp-main</artifactId>
+    <groupId>ifp</groupId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath>../ifp-main</relativePath>
+  </parent>
+  <groupId>ifp</groupId>
+  <artifactId>ifp-workflow</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <properties>
+      <skip_maven_deploy>true</skip_maven_deploy>
+  </properties>
+  
+  <dependencies>
+        <dependency>
+            <groupId>ifp</groupId>
+            <artifactId>ifp-flow</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.uuid</groupId>
+            <artifactId>java-uuid-generator</artifactId>
+            <version>3.1.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-engine</artifactId>
+            <version>5.16.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-spring</artifactId>
+            <version>5.16.3</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-orm</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+</project>

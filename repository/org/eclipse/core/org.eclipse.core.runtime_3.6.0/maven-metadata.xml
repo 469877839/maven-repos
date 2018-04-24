@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.eclipse.core</groupId>
+  <artifactId>org.eclipse.core.runtime_3.6.0</artifactId>
+  <versioning>
+    <release>v20100505</release>
+    <versions>
+      <version>v20100505</version>
+    </versions>
+    <lastUpdated>20170224061003</lastUpdated>
+  </versioning>
+</metadata>

@@ -1,0 +1,114 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>ifp-bank</groupId>
+		<artifactId>ifp-bank</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<groupId>ifp-bank</groupId>
+	<artifactId>common-lib</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	
+	<!-- 配置仓库镜像指向地址 -->
+	<!-- <repositories>
+		<repository>
+			<id>aliyun.maven</id>
+			<name>Aliyun Maven Repository Group</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+		</repository>
+		<repository>
+			<id>ifp.git</id>
+			<name>ifp github Nexus Repositories</name>
+			<url>https://raw.githubusercontent.com/ynet-ifp/maven-repo/master/repository</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>aliyun.maven</id>
+			<name>Aliyun Maven Repository Group</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>ifp.git</id>
+			<name>ifp github Nexus Repository</name>
+			<url>https://raw.githubusercontent.com/ynet-ifp/maven-repo/master/repository</url>
+		</pluginRepository>
+	</pluginRepositories> -->
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<log4j2.version>2.8</log4j2.version>
+	</properties>
+
+	<!-- <dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.alipay.boot</groupId>
+				<artifactId>slite2-dependencies</artifactId>
+				<version>2.1.2</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement> -->
+
+	<dependencies>
+
+		<dependency>
+			<groupId>ifp</groupId>
+			<artifactId>KeyBoardJCE</artifactId>
+			<version>160218</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/KeyBoardJCE160218.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>ifp</groupId>
+			<artifactId>dubbo_fairy_uscenter_api</artifactId>
+			<version>1.0.0</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/dubbo_fairy_uscenter_api-1.0.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>ifp</groupId>
+			<artifactId>ifsp</artifactId>
+			<version>remote</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/ifsp-remote.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>ifp</groupId>
+			<artifactId>AESWithJCE</artifactId>
+			<version>0.0.1</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/AESWithJCE.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>ifp</groupId>
+			<artifactId>ruim-project</artifactId>
+			<version>mock</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/ruim-project-mock.jar</systemPath>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<compilerArguments>
+						<verbose />
+						<bootclasspath>${JAVA_HOME}/jre/lib/rt.jar</bootclasspath>
+					</compilerArguments>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ifp</groupId>
+	<artifactId>ifp-mq</artifactId>
+	<version>1.0.0</version>
+	<name>${project.artifactId}</name>
+
+	<properties>
+		<rocketmq.version>3.5.8</rocketmq.version>
+		<!-- <logback.version>1.0.13</logback.version> -->
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>ifp</groupId>
+			<artifactId>ifp</artifactId>
+			<version>2.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- MQ -->
+		<dependency>
+			<groupId>com.alibaba.rocketmq</groupId>
+			<artifactId>rocketmq-client</artifactId>
+			<version>${rocketmq.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba.rocketmq</groupId>
+			<artifactId>rocketmq-srvutil</artifactId>
+			<version>${rocketmq.version}</version>
+		</dependency>
+		<!-- <dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>${logback.version}</version>
+		</dependency> -->
+
+	</dependencies>
+</project>

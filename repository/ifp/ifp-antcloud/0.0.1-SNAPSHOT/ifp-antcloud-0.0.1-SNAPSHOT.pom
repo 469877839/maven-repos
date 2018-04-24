@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>ifp-main</artifactId>
+		<groupId>ifp</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../ifp-main</relativePath>
+	</parent>
+	<groupId>ifp</groupId>
+	<artifactId>ifp-antcloud</artifactId>
+	<version>${project.parent.version}</version>
+	<name>${project.artifactId}</name>
+
+	<properties>
+		<slite.starter.version>1.1.1</slite.starter.version>
+		<config.version>4.0.3.alipay</config.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>ifp</groupId>
+			<artifactId>ifp</artifactId>
+			<version>2.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- config -->
+		<dependency>
+			<groupId>com.alipay.configserver</groupId>
+			<artifactId>config-common</artifactId>
+			<version>${config.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.taobao.configserver</groupId>
+			<artifactId>config-client</artifactId>
+			<version>${config.version}</version>
+		</dependency>
+
+		<!-- RPC -->
+		<!-- so that we can use sofa:binding.tr -->
+		<dependency>
+			<groupId>com.alipay.sofa</groupId>
+			<artifactId>slite-starter-rpc</artifactId>
+			<version>${slite.starter.version}</version>
+		</dependency>
+
+		<!-- MQ -->
+		<dependency>
+			<groupId>com.alipay.sofa</groupId>
+			<artifactId>slite-starter-msgbroker</artifactId>
+			<version>${slite.starter.version}</version>
+		</dependency>
+
+		<!-- DDS -->
+		<dependency>
+			<groupId>com.alipay.sofa</groupId>
+			<artifactId>slite-starter-zdal</artifactId>
+			<version>${slite.starter.version}</version>
+			<!-- <exclusions>
+				<exclusion>
+					<groupId>com.alibaba</groupId>
+					<artifactId>jconsole</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.alibaba</groupId>
+					<artifactId>tools</artifactId>
+				</exclusion>
+			</exclusions> -->
+		</dependency>
+	</dependencies>
+</project>

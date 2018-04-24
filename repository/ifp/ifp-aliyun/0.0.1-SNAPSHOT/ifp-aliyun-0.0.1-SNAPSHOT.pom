@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>ifp-main</artifactId>
+		<groupId>ifp</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../ifp-main</relativePath>
+	</parent>
+	<groupId>ifp</groupId>
+	<artifactId>ifp-aliyun</artifactId>
+	<version>${project.parent.version}</version>
+	<name>ifp-aliyun</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>ifp</groupId>
+			<artifactId>ifp-mvc</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>ifp</groupId>
+					<artifactId>ifp-temp</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- HSF -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>hsf.schema</artifactId>
+			<version>edas1.0.1</version>
+		</dependency>
+
+		<!-- MQ -->
+		<dependency>
+			<groupId>com.aliyun.openservices</groupId>
+			<artifactId>ons-client</artifactId>
+			<version>1.2.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.5.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.5.6</version>
+		</dependency>
+
+	</dependencies>
+</project>
