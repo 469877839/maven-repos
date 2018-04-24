@@ -35,7 +35,7 @@
 		<repository>
 			<id>ifp.git</id>
 			<name>ifp github Nexus Repositories</name>
-			<url>https://raw.githubusercontent.com/ynet-ifp/maven-repo/master/repository</url>
+			<url>https://raw.githubusercontent.com/ynet-ifp/maven-repos/master/repository</url>
 		</repository>
 	</repositories>
 	<pluginRepositories>
@@ -47,7 +47,7 @@
 		<pluginRepository>
 			<id>ifp.git</id>
 			<name>ifp github Nexus Repository</name>
-			<url>https://raw.githubusercontent.com/ynet-ifp/maven-repo/master/repository</url>
+			<url>https://raw.githubusercontent.com/ynet-ifp/maven-repos/master/repository</url>
 		</pluginRepository>
 	</pluginRepositories>
 
