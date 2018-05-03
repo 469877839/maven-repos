@@ -2,5 +2,5 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ifp</groupId>
   <artifactId>ctsp</artifactId>
-  <version>ctsp</version>
+  <version>1.0.0</version>
 </project>
