@@ -1,0 +1,367 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>hd-bank</groupId>
+		<artifactId>hd-bank</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>common-lib</artifactId>
+	<packaging>jar</packaging>
+
+	<!-- 配置仓库镜像指向地址 -->
+	<!-- <repositories> <repository> <id>aliyun.maven</id> <name>Aliyun Maven 
+		Repository Group</name> <url>http://maven.aliyun.com/nexus/content/groups/public/</url> 
+		</repository> <repository> <id>ifp.git</id> <name>ifp github Nexus Repositories</name> 
+		<url>https://raw.githubusercontent.com/ynet-ifp/maven-repo/master/repository</url> 
+		</repository> </repositories> <pluginRepositories> <pluginRepository> <id>aliyun.maven</id> 
+		<name>Aliyun Maven Repository Group</name> <url>http://maven.aliyun.com/nexus/content/groups/public/</url> 
+		</pluginRepository> <pluginRepository> <id>ifp.git</id> <name>ifp github 
+		Nexus Repository</name> <url>https://raw.githubusercontent.com/ynet-ifp/maven-repo/master/repository</url> 
+		</pluginRepository> </pluginRepositories> -->
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<log4j2.version>2.8</log4j2.version>
+		<java.version>1.7</java.version>
+		<JAVA_HOME>/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home</JAVA_HOME>
+	</properties>
+
+	<!-- <dependencyManagement> <dependencies> <dependency> <groupId>com.alipay.boot</groupId> 
+		<artifactId>slite2-dependencies</artifactId> <version>2.1.2</version> <type>pom</type> 
+		<scope>import</scope> </dependency> </dependencies> </dependencyManagement> -->
+	<!-- 配置仓库镜像指向地址 -->
+	<repositories>
+		<repository>
+			<id>aliyun.maven</id>
+			<name>Aliyun Maven Repository Group</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+		</repository>
+		<repository>
+			<id>ifp.git</id>
+			<name>ifp github Nexus Repositories</name>
+			<url>https://raw.githubusercontent.com/ynet-ifp/maven-repos/master/repository</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>aliyun.maven</id>
+			<name>Aliyun Maven Repository Group</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>ifp.git</id>
+			<name>ifp github Nexus Repository</name>
+			<url>https://raw.githubusercontent.com/ynet-ifp/maven-repos/master/repository</url>
+		</pluginRepository>
+	</pluginRepositories>
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>${log4j2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${log4j2.version}</version>
+		</dependency>
+		<dependency> <!-- 桥接：告诉Log4j1使用Log4j2 -->
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-1.2-api</artifactId>
+			<version>${log4j2.version}</version>
+		</dependency>
+		<dependency> <!-- 桥接：告诉Slf4j使用Log4j2 -->
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+			<version>${log4j2.version}</version>
+		</dependency>
+		<dependency> <!-- 桥接：告诉commons logging使用Log4j2 -->
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-jcl</artifactId>
+			<version>${log4j2.version}</version>
+		</dependency>
+		<dependency> <!-- 桥接：告诉jdk logging使用Log4j2 -->
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-jul</artifactId>
+			<version>${log4j2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.25</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>4.3.4.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>ifp</groupId>
+			<artifactId>ifp</artifactId>
+			<version>2.1.1</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- junit包 -->
+		<dependency>
+			<groupId>ifp</groupId>
+			<artifactId>ifp-test</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		<dependency>
+			<!-- <groupId>ifp</groupId> <artifactId>factor</artifactId> <version>0.0.1-SNAPSHOT</version> -->
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbov</artifactId>
+			<version>2.8.4</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.servlet</groupId>
+					<artifactId>javax.servlet-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- flume client -->
+		<dependency>
+			<groupId>ifp</groupId>
+			<artifactId>ifp-flume</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<exclusions>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.101tec</groupId>
+					<artifactId>zkclient</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.mortbay.jetty</groupId>
+					<artifactId>servlet-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.9</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.tobato</groupId>
+			<artifactId>fastdfs-client</artifactId>
+			<version>1.25.4-RELEASE</version>
+			<exclusions>
+				<exclusion>
+					<groupId>ch.qos.logback</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>jcl-over-slf4j</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jna</groupId>
+			<artifactId>jna</artifactId>
+			<version>3.0.9</version>
+		</dependency>
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>itextpdf</artifactId>
+			<version>5.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+		</dependency>
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>2.7.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>1.0.31</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.alibaba</groupId>
+					<artifactId>jconsole</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.alibaba</groupId>
+					<artifactId>tools</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.43</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ifp</groupId>
+			<artifactId>ifp-netflix</artifactId>
+			<version>0.0.2-SNAPSHOT</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20140107</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.32</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba.csb.sdk</groupId>
+			<artifactId>http-sdk</artifactId>
+			<version>1.0.4.2</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- ifp-account-service and ifp-accounts-service dependency -->
+		<!--<dependency> <groupId>com.fmbank.commons</groupId> <artifactId>fmbank-common-util</artifactId> 
+			<version>1.0.4</version> </dependency> -->
+		<dependency>
+			<groupId>org.java-websocket</groupId>
+			<artifactId>Java-WebSocket</artifactId>
+			<version>1.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>ifp</groupId>
+			<artifactId>KeyBoardJCE</artifactId>
+			<version>160718</version>
+			<!-- <scope>system</scope> <systemPath>${basedir}/lib/KeyBoardJCE160718.jar</systemPath> -->
+		</dependency>
+		<dependency>
+			<groupId>ifp</groupId>
+			<artifactId>dubbo_fairy_uscenter_api</artifactId>
+			<version>1.0.0</version>
+			<!-- <scope>system</scope> <systemPath>${basedir}/lib/dubbo_fairy_uscenter_api-1.0.0.jar</systemPath> -->
+		</dependency>
+		<dependency>
+			<groupId>ifp</groupId>
+			<artifactId>ifsp</artifactId>
+			<version>remote</version>
+			<!-- <scope>system</scope> <systemPath>${basedir}/lib/ifsp-remote.jar</systemPath> -->
+		</dependency>
+		<dependency>
+			<groupId>ifp</groupId>
+			<artifactId>AESWithJCE</artifactId>
+			<version>20180206</version>
+			<!-- <scope>system</scope> <systemPath>${basedir}/lib/AESWithJCE20180206.jar</systemPath> -->
+		</dependency>
+		<dependency>
+			<groupId>ifp</groupId>
+			<artifactId>ruim-project</artifactId>
+			<version>mock</version>
+			<!-- <scope>system</scope> <systemPath>${basedir}/lib/ruim-project-mock.jar</systemPath> -->
+		</dependency>
+		<dependency>
+			<groupId>ifp</groupId>
+			<artifactId>netsignapi</artifactId>
+			<version>1.0.0</version>
+			<!-- <scope>system</scope> <systemPath>${basedir}/lib/netsignapi.jar</systemPath> -->
+		</dependency>
+		<dependency>
+			<groupId>ifp</groupId>
+			<artifactId>ctsp</artifactId>
+			<version>1.0.0</version>
+			<!-- <scope>system</scope> <systemPath>${basedir}/lib/ctsp.jar</systemPath> -->
+		</dependency>
+		<dependency>
+			<groupId>ifp</groupId>
+			<artifactId>HKETK</artifactId>
+			<version>3.1.3.0</version>
+			<!-- <scope>system</scope> <systemPath>${basedir}/lib/HKETK-3.1.3.0.jar</systemPath> -->
+		</dependency>
+		<dependency>
+			<groupId>ifp</groupId>
+			<artifactId>SADK</artifactId>
+			<version>3.2.3.0</version>
+			<!-- <scope>system</scope> <systemPath>${basedir}/lib/SADK-3.2.3.0.jar</systemPath> -->
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-compress</artifactId>
+			<version>1.9</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-xjc</artifactId>
+			<version>2.2.6</version>
+		</dependency>
+		<dependency>
+			<groupId>ifp</groupId>
+			<artifactId>ra-toolkit</artifactId>
+			<version>3.6.4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk15</artifactId>
+			<version>1.45</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<compilerArguments>
+						<verbose />
+						<bootclasspath>${JAVA_HOME}/jre/lib/rt.jar</bootclasspath>
+					</compilerArguments>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
