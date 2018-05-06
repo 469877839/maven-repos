@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>hd-bank</groupId>
+	<artifactId>hd-bank</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>hd-bank</name>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.7</java.version>
+		<project.port>8080</project.port>
+		<profile.dev>src/profile/dev</profile.dev>
+		<profile.test>src/profile/test</profile.test>
+		<profile.prod>src/profile/prod</profile.prod>
+		<profile.uat>src/profile/uat</profile.uat>
+		<maven.test.skip>false</maven.test.skip>
+		<log4j2.version>2.8</log4j2.version>
+	</properties>
+	<modules>
+		<!-- <module>../common-lib</module> -->
+	</modules>
+
+	<!-- 配置仓库镜像指向地址 -->
+	<repositories>
+		<repository>
+			<id>aliyun.maven</id>
+			<name>Aliyun Maven Repository Group</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+		</repository>
+		<repository>
+			<id>ifp.git</id>
+			<name>ifp github Nexus Repositories</name>
+			<url>https://raw.githubusercontent.com/ynet-ifp/maven-repos/master/repository</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>aliyun.maven</id>
+			<name>Aliyun Maven Repository Group</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>ifp.git</id>
+			<name>ifp github Nexus Repository</name>
+			<url>https://raw.githubusercontent.com/ynet-ifp/maven-repos/master/repository</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>utf8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>ifp.ide</groupId>
+					<artifactId>bl-maven-plugin</artifactId>
+					<version>0.0.1-SNAPSHOT</version>
+					<executions>
+						<execution>
+							<id>bl-compile</id>
+							<phase>compile</phase>
+							<goals>
+								<goal>compile</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.1.1</version>
+					<configuration>
+						<encoding>UTF-8</encoding>
+						<warSourceDirectory>WebContent</warSourceDirectory>
+						<webXml>WebContent/WEB-INF/web.xml</webXml>
+						<packagingExcludes>WEB-INF/web.xml</packagingExcludes>
+						<!-- 要替换的生产配置文件 -->
+						<webResources>
+							<resource>
+								<filtering>true</filtering>
+								<directory>${profile.directory}</directory>
+								<targetPath>WEB-INF</targetPath>
+								<includes>
+									<include>**</include>
+								</includes>
+							</resource>
+						</webResources>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	<profiles>
+		<!-- product配置 -->
+		<profile>
+			<id>prod</id>
+			<properties>
+				<profile.directory>${profile.prod}</profile.directory>
+			</properties>
+		</profile>
+		<!-- uat配置 -->
+		<profile>
+			<id>uat</id>
+			<properties>
+				<profile.directory>${profile.uat}</profile.directory>
+			</properties>
+		</profile>
+		<!-- test配置 -->
+		<profile>
+			<id>test</id>
+			<properties>
+				<profile.directory>${profile.test}</profile.directory>
+			</properties>
+		</profile>
+		<!-- dev配置 -->
+		<profile>
+			<id>dev</id>
+			<properties>
+				<profile.directory>${profile.dev}</profile.directory>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+	</profiles>
+</project>
