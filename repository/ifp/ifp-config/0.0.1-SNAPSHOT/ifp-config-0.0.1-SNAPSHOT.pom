@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>ifp-main</artifactId>
+		<groupId>ifp</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../ifp-main</relativePath>
+	</parent>
+	<groupId>ifp</groupId>
+	<artifactId>ifp-config</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>ifp-config</name>
+	<repositories>
+		<repository>
+			<id>internal.repo</id>
+			<url>https://raw.github.com/ctripcorp/apollo/mvn-repo/</url>
+		</repository>
+	</repositories>
+	<dependencies>
+		<dependency>
+			<groupId>ifp</groupId>
+			<artifactId>ifp</artifactId>
+			<version>2.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ctrip.framework.apollo</groupId>
+			<artifactId>apollo-client</artifactId>
+			<version>0.11.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ctrip.framework.apollo</groupId>
+			<artifactId>apollo-core</artifactId>
+			<version>0.11.0-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+</project>
