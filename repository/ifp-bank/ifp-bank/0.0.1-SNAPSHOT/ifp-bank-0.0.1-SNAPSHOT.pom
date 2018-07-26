@@ -123,6 +123,12 @@
 			<artifactId>ifp-test</artifactId>
 			<version>1.0.1</version>
 		</dependency>
+		<!--数据收集 -->
+		<dependency>
+			<groupId>ifp</groupId>
+			<artifactId>ifp-meta</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<dependency>
 			<!-- <groupId>ifp</groupId>
 			<artifactId>factor</artifactId>
