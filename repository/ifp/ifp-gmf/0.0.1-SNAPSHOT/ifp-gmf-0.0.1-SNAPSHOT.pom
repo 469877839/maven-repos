@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ifp</groupId>
+	<artifactId>ifp-gmf</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>${project.artifactId}</name>
+
+	<!-- 配置仓库镜像指向地址 -->
+	<repositories>
+		<repository>
+			<id>aliyun.maven</id>
+			<name>Aliyun Maven Repository Group</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+		</repository>
+		<repository>
+			<id>ifp.git</id>
+			<name>ifp github Nexus Repositories</name>
+			<url>https://raw.githubusercontent.com/ynet-ifp/maven-repos/master/repository</url>
+		</repository>
+	</repositories>
+
+	<properties>
+	</properties>
+
+	<dependencies>
+			<dependency>
+		  <groupId>com.gdrcu.gmf</groupId>
+		  <artifactId>gmf-plugin-manager</artifactId>
+		  <version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>ifp</groupId>
+			<artifactId>ifp</artifactId>
+			<version>2.3.0</version>
+			<scope>provided</scope>
+		</dependency>
+<!-- 		<dependency>
+			<groupId>com.gdrcu.gmf</groupId>
+			<artifactId>gmf-plugin-manager</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency> -->
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-collections4</artifactId>
+		    <version>4.0</version>
+		</dependency>
+	</dependencies>
+</project>
